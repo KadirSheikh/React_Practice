@@ -28,7 +28,7 @@ const NewExpense = (props) => {
       )}
       {isEditing && (
         <ExpenseForm
-          onSaveExpenseData={saveNewExpenseHandler}
+          onSaveNewExpense={saveNewExpenseHandler}
           onCancel={stopEditingHandler}
         />
       )}
