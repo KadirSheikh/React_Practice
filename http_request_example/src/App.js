@@ -82,7 +82,14 @@ function App() {
     );
 
     const data = await response.json();
-    console.log(data);
+
+    const createdMovie = {
+      id: data.name,
+      ...movie,
+    };
+
+    setMovies((prevMovies) => prevMovies.concat(createdMovie));
+    console.log(createdMovie);
   }
 
   let content = <p>No movies found.</p>;
@@ -104,9 +111,9 @@ function App() {
       <section>
         <AddMovie onAddMovie={addMovieHandler} />
       </section>
-      <section>
+      {/* <section>
         <button onClick={fetchMovieHandler}>Fetch Movies</button>
-      </section>
+      </section> */}
       <section>{content}</section>
     </React.Fragment>
   );
