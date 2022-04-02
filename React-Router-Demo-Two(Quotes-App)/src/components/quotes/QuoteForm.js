@@ -1,8 +1,7 @@
-import { useRef } from 'react';
-
-import Card from '../ui/Card';
-import LoadingSpinner from '../ui/LoadingSpinner';
-import classes from './QuoteForm.module.css';
+import { Fragment, useRef } from "react";
+import Card from "../UI/Card";
+import LoadingSpinner from "../UI/LoadingSpinner";
+import classes from "./QuoteForm.module.css";
 
 const QuoteForm = (props) => {
   const authorInputRef = useRef();
@@ -20,27 +19,29 @@ const QuoteForm = (props) => {
   }
 
   return (
-    <Card>
-      <form className={classes.form} onSubmit={submitFormHandler}>
-        {props.isLoading && (
-          <div className={classes.loading}>
-            <LoadingSpinner />
-          </div>
-        )}
+    <Fragment>
+      <Card>
+        <form className={classes.form} onSubmit={submitFormHandler}>
+          {props.isLoading && (
+            <div className={classes.loading}>
+              <LoadingSpinner />
+            </div>
+          )}
 
-        <div className={classes.control}>
-          <label htmlFor='author'>Author</label>
-          <input type='text' id='author' ref={authorInputRef} />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor='text'>Text</label>
-          <textarea id='text' rows='5' ref={textInputRef}></textarea>
-        </div>
-        <div className={classes.actions}>
-          <button className='btn'>Add Quote</button>
-        </div>
-      </form>
-    </Card>
+          <div className={classes.control}>
+            <label htmlFor="author">Author</label>
+            <input type="text" id="author" ref={authorInputRef} />
+          </div>
+          <div className={classes.control}>
+            <label htmlFor="text">Text</label>
+            <textarea id="text" rows="5" ref={textInputRef}></textarea>
+          </div>
+          <div className={classes.actions}>
+            <button className="btn">Add Quote</button>
+          </div>
+        </form>
+      </Card>
+    </Fragment>
   );
 };
 
